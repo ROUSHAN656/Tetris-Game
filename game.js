@@ -11,3 +11,5 @@ let coordinateArray = [...Array(gBArrayHeight)].map(e => Array(gBArrayWidth).fil
 let currentTetromino=[[1,0], [0,1], [1,1], [2,1]];
 let tetrominos=[];
 let colorsOfTetrominos=['purple','cyan','blue','yellow','orange','green','red'];
+let currentTetrominoColor;
+let gameBoardArray=[...Array(20)].map(e => Array(12).fill(0));
