@@ -13,3 +13,12 @@ let tetrominos=[];
 let colorsOfTetrominos=['purple','cyan','blue','yellow','orange','green','red'];
 let currentTetrominoColor;
 let gameBoardArray=[...Array(20)].map(e => Array(12).fill(0));
+let stoppedShapeArray = [...Array(20)].map(e => Array(12).fill(0));
+let DIRECTION = {
+    IDLE: 0,
+    DOWN: 1,
+    LEFT: 2,
+    RIGHT: 3
+};
+let direction;
+ 
