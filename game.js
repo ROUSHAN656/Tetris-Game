@@ -21,4 +21,12 @@ let DIRECTION = {
     RIGHT: 3
 };
 let direction;
+
+class Coordinates{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+}
+
  
