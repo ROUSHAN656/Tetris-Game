@@ -29,4 +29,24 @@ class Coordinates{
     }
 }
 
+// Execute SetupCanvas when page loads
+document.addEventListener('DOMContentLoaded', SetupCanvas); 
+ 
+// Creates the array with square coordinates [Lookup Table]
+// [0,0] Pixels X: 11 Y: 9, [1,0] Pixels X: 34 Y: 9, ...
+function CreateCoordArray(){
+    let xR = 0, yR = 19;
+    let i = 0, j = 0;
+    for(let y = 9; y <= 446; y += 23){
+        // 12 * 23 = 276 - 12 = 264 Max X value
+        for(let x = 11; x <= 264; x += 23){
+            coordinateArray[i][j] = new Coordinates(x,y);
+            // console.log(i + ":" + j + " = " + coordinateArray[i][j].x + ":" + coordinateArray[i][j].y);
+            i++;
+        }
+        j++;
+        i = 0;
+    }
+}
+
  
