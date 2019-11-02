@@ -50,3 +50,82 @@ function CreateCoordArray(){
 }
 
  
+function SetupCanvas(){
+    canvas = document.getElementById('my-canvas');
+    ctx = canvas.getContext('2d');
+    canvas.width = 936;
+    canvas.height = 956;
+ 
+    // Double the size of elements to fit the screen
+    ctx.scale(2, 2);
+ 
+    // Draw Canvas background
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw gameboard rectangle
+    ctx.strokeStyle = 'black';
+    ctx.strokeRect(8, 8, 280, 462);
+ 
+    tetrisLogo = new Image(161, 54);
+    tetrisLogo.onload = DrawTetrisLogo;
+    tetrisLogo.src = "tetrislogo.png";
+ 
+    // Set font for score label text and draw
+    ctx.fillStyle = 'black';
+    ctx.font = '21px Arial';
+    ctx.fillText("SCORE", 300, 98);
+ 
+    // Draw score rectangle
+    ctx.strokeRect(300, 107, 161, 24);
+ 
+    // Draw score
+    ctx.fillText(score.toString(), 310, 127);
+    
+    // Draw level label text
+    ctx.fillText("LEVEL", 300, 157);
+ 
+    // Draw level rectangle
+    ctx.strokeRect(300, 171, 161, 24);
+ 
+    // Draw level
+    ctx.fillText(level.toString(), 310, 190);
+ 
+    // Draw next label text
+    ctx.fillText("WIN / LOSE", 300, 221);
+ 
+    // Draw playing condition
+    ctx.fillText(winOrLose, 310, 261);
+ 
+    // Draw playing condition rectangle
+    ctx.strokeRect(300, 232, 161, 95);
+    
+    // Draw controls label text
+    ctx.fillText("CONTROLS", 300, 354);
+ 
+    // Draw controls rectangle
+    ctx.strokeRect(300, 366, 161, 104);
+ 
+    // Draw controls text
+    ctx.font = '19px Arial';
+    ctx.fillText("A : Move Left", 310, 388);
+    ctx.fillText("D : Move Right", 310, 413);
+    ctx.fillText("S : Move Down", 310, 438);
+    ctx.fillText("E : Rotate Right", 310, 463);
+ 
+    // 2. Handle keyboard presses
+    document.addEventListener('keydown', HandleKeyPress);
+ 
+    // 3. Create the array of Tetromino arrays
+    CreateTetrominos();
+    // 3. Generate random Tetromino
+    CreateTetromino();
+ 
+    // Create the rectangle lookup table
+    CreateCoordArray();
+ 
+    DrawTetromino();
+}
+ 
+
+ 
