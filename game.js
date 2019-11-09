@@ -126,6 +126,38 @@ function SetupCanvas(){
  
     DrawTetromino();
 }
+function DrawTetrisLogo(){
+    ctx.drawImage(tetrisLogo, 300, 8, 161, 54);
+}
+ 
+function DrawTetromino(){
+    // Cycle through the x & y array for the tetromino looking
+    // for all the places a square would be drawn
+    for(let i = 0; i < curTetromino.length; i++){
+ 
+        // Move the Tetromino x & y values to the tetromino
+        // shows in the middle of the gameboard
+        let x = curTetromino[i][0] + startX;
+        let y = curTetromino[i][1] + startY;
+ 
+        // 4. Put Tetromino shape in the gameboard array
+        gameBoardArray[x][y] = 1;
+        // console.log("Put 1 at [" + x + "," + y + "]");
+ 
+        // Look for the x & y values in the lookup table
+        let coorX = coordinateArray[x][y].x;
+        let coorY = coordinateArray[x][y].y;
+ 
+        // console.log("X : " + x + " Y : " + y);
+        // console.log("Rect X : " + coordinateArray[x][y].x + " Rect Y : " + coordinateArray[x][y].y);
+ 
+        // 1. Draw a square at the x & y coordinates that the lookup
+        // table provides
+        ctx.fillStyle = curTetrominoColor;
+        ctx.fillRect(coorX, coorY, 21, 21);
+    }
+}
+ 
  
 
  
